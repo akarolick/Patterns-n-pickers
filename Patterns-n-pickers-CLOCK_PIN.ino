@@ -1,7 +1,7 @@
 #include "FastLED.h"
 
 // How many leds in your strip?
-#define NUM_LEDS 41  // 84 HATS // 57 UNICYCLE // 82 VEST // 102 SKIRTS // 20 YARMULKE/FASCINATOR // 41 HEADDRESS // 29 GLOVES
+#define NUM_LEDS 61 // Showgirl belts
 
 //PATTERN PICKER!!!!
 int patterns[] = {4};
@@ -9,7 +9,8 @@ int patterns[] = {4};
 //COLOR PICKER FOR PATTERN 4 "SLOW FADE BETWEEN COLORS OVER THE ENTIRE STRIP"
 
 
-#define DATA_PIN 1
+#define DATA_PIN 0
+#define CLOCK_PIN 1
 
 #define HALF_LEDS (NUM_LEDS/2)
 #define QUART_LEDS (NUM_LEDS/4)
@@ -42,7 +43,7 @@ COLOR GRADIENT MAP RGB
 CRGB leds[NUM_LEDS];
 
 void setup() { 
-	LEDS.addLeds<WS2812,DATA_PIN,GRB>(leds,NUM_LEDS);
+	LEDS.addLeds<APA102,DATA_PIN,CLOCK_PIN,BGR>(leds,NUM_LEDS);
 	LEDS.setBrightness(60);
 }
 
